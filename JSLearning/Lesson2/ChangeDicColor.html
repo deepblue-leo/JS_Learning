@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Change DIV Color</title>
+    <style>
+        #div1 {width: 300px; height: 500px; background: black;}
+    </style>
+</head>
+<script>
+    function toChangeColor(col)
+    {
+        var oDiv = document.getElementById('div1');
+        if(col != null)
+        {
+            oDiv.style['background']=col;
+        }
+    }
+</script>
+<body>
+<input type="button" value="To Red" onclick="toChangeColor('red')">
+<input type="button" value="To Yellow" onclick="toChangeColor('yellow')">
+<input type="button" value="To blue" onclick="toChangeColor('blue')">
+
+<div id="div1">
+
+</div>
+</body>
+</html>

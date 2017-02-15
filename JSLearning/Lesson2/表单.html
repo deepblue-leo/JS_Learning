@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        window.onload = function (){
+            var oForm = document.getElementById('frm1');
+
+            oForm.onsubmit = function (){
+                alert('haha');
+            }
+
+            oForm.onreset = function (){
+                alert('heihei');
+            }
+        }
+    </script>
+</head>
+<body>
+<form id="frm1" action="http://www.163.com/">
+    UserName: <input type="text" name="un" /><br>
+    PassWord: <input type="text" name="ps" /><br>
+    <input type="submit" />
+    <input type="reset" />
+</form>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Show/Hide DIV</title>
+    <style>
+        #div1 {width: 200px; height: 300px; background: silver; display: none}
+    </style>
+</head>
+
+<script>
+    function ShowHideDiv()
+    {
+        var oDiv = document.getElementById('div1');
+        var oBtn = document.getElementById('btn1');
+
+        if (oDiv.style.display != 'block') {
+            oDiv.style.display = 'block';
+            oBtn.value = 'Hide DIV';
+        } else {
+            oDiv.style.display = 'none';
+            oBtn.value = 'Show DIV';
+        }
+    }
+</script>
+<body>
+<input id="btn1" type="button" value="Show DIV" onclick="ShowHideDiv()"/>
+<div id="div1">I'm just a DIV</div>
+</body>
+</html>

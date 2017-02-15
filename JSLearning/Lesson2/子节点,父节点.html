@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>子节点</title>
+
+    <script>
+        window.onload = function (){
+            var oUl = document.getElementById('ul1');
+            var oA = document.getElementsByTagName('a');
+
+//            for(var i = 0; i < oUl.childNodes.length; i++){
+//                //如果不做这个判断，在某些浏览器下，childNodes的长度不一定是5
+//                if(oUl.childNodes[i].nodeType == 1){
+//                    oUl.childNodes[i].style.background = 'blue';
+//                }
+//            }
+
+            for(var i = 0; i < oUl.children.length; i++){
+                oUl.children[i].style.background = 'Green';
+            }
+
+            for(var j = 0; j < oA.length; j++){
+                oA[j].onclick = function () {
+                    this.parentNode.style.display = 'none';
+                }
+            }
+
+            //firstChild有兼容行问题，高版本浏览器上用firstElementChild
+        }
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <ul id="ul1">
+            <li>Tom <a href="javascript:;">Hide</a> </li>
+            <li>Jerry <a href="javascript:;">Hide</a></li>
+            <li>Kate <a href="javascript:;">Hide</a></li>
+            <li>Leo <a href="javascript:;">Hide</a></li>
+            <li>John <a href="javascript:;">Hide</a></li>
+        </ul>
+    </div>
+</body>
+</html>

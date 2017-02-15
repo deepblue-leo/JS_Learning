@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>获取非行间样式</title>
+
+    <style>
+        #div1 {width: 200px; height: 300px; background: red;}
+    </style>
+
+    <script>
+        function getStyle(obj,name)
+        {
+            if(obj.currentStyle)
+            {
+                 //For IE7, 8
+                 return obj.currentStyle[name];
+            }
+            else
+            {
+                //For other kind of broswer, chrome, firefox, ...
+                return getComputedStyle(obj,null)[name];
+            }
+        }
+
+
+        window.onload = function ()
+        {
+            var oDiv = document.getElementById('div1');
+
+            //oDiv.currentStyle.background = 'green';
+            //alert(getComputedStyle(oDiv,null).width);
+
+            alert(getStyle(oDiv,'backgroundColor'));
+        }
+    </script>
+</head>
+<body>
+<div id="div1">
+
+</div>
+</body>
+</html>

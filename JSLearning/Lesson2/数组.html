@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>数组操作</title>
+
+    <script>
+        var arr = [1,2,3,4,5];
+        var arr2 = [7,8,9];
+
+        //删除起点2开始的3个值
+        //arr.splice(2,3);
+
+        //从起点x开始，替换2个值，值为8，9
+        //arr.splice(2,0,8,9);
+
+        //在尾部添加
+        //arr.splice(5,2,8,9);
+
+        //连接数组
+        //var arr3 = arr.concat(arr2);
+
+        //插入连接符
+        //var arr3 = arr.join('%');
+
+        //字符串排序
+        //var arr3 = ['fhl', 'sll', 'fs', 'mxp', 'fwh'];
+        //arr3.sort();
+
+        //数字排序
+        var arr3 = [33,54,67,1,90,54];
+        arr3.sort(function (val1, var2){
+//            if(val1 < var2)
+//            {
+//                return -1;
+//            }
+//            else
+//            {
+//                return 1;
+//            }
+
+            return val1 - var2;
+        })
+
+     alert(arr3);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

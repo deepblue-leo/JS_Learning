@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>数码时钟</title>
+
+    <script>
+        function toDou(n)
+        {
+            if(n<10)
+            {
+                return '0' + n;
+            }
+            else
+            {
+                return '' + n;
+            }
+        }
+
+        window.onload = function ()
+        {
+            //var oDatex = new Date();
+            //var year = oDatex.getYear() + 1900;
+            //alert(year);
+
+            var aDiv1 = document.getElementById('div1');
+            var aImg1 = aDiv1.getElementsByTagName('img');
+
+            var aDiv2 = document.getElementById('div2');
+            var aImg2 = aDiv2.getElementsByTagName('img');
+            //var aImg = document.getElementsByTagName('img');
+
+            function tick()
+            {
+                var oDate = new Date();
+
+                var str = toDou(oDate.getHours())+toDou(oDate.getMinutes())+toDou(oDate.getSeconds());
+
+                for(var i = 0; i < aImg1.length; i++)
+                {
+                    aImg1[i].src = 'img/' + /*str[i]*/ str.charAt(i)/*charAt是所有浏览器兼容的写法*/ + '.jpg';
+                }
+            };
+
+            function getDay()
+            {
+                var oDate2 = new Date();
+                var year = (oDate2.getYear() + 1900).toString();
+                var month = toDou(oDate2.getMonth() + 1);
+                var date = toDou(oDate2.getDate());
+
+                var str2 = year + month + date;
+
+                //alert(str2);
+
+                for(var i = 0; i < aImg2.length; i++)
+                {
+                    aImg2[i].src = 'img/' + str2.charAt(i) + '.jpg';
+                }
+            };
+
+            function refreshTime()
+            {
+                tick();
+                getDay();
+            };
+
+            var timer = setInterval(refreshTime, 1000);
+            //var timer2 = setInterval(getDay,1000*60);
+
+            //tick();
+            //getDay();
+            refreshTime();
+
+            timer.start;
+            //timer2.start;
+
+        }
+    </script>
+</head>
+<body style="background: black; color: white; font-size: 50px;">
+
+<p>超酷时钟</p>
+<div id="div1">
+    <img src="img/0.jpg" />
+    <img src="img/0.jpg" />
+    :
+    <img src="img/2.jpg" />
+    <img src="img/2.jpg" />
+    :
+    <img src="img/1.jpg" />
+    <img src="img/1.jpg" />
+</div>
+<br/>
+<div id="div2">
+    <img src="img/0.jpg" />
+    <img src="img/0.jpg" />
+    <img src="img/0.jpg" />
+    <img src="img/0.jpg" />
+    年
+    <img src="img/0.jpg" />
+    <img src="img/0.jpg" />
+    月
+    <img src="img/0.jpg" />
+    <img src="img/0.jpg" />
+    日
+</div>
+
+
+</body>
+</html>

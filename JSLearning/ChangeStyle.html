@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Style change</title>
+</head>
+<link id = "link1" rel="stylesheet" type="text/css" href="Style1.css" />
+<script>
+    function getStyle1()
+    {
+        var sty = document.getElementById('link1');
+        sty.href = 'Style1.css';
+    }
+
+    function getStyle2()
+    {
+        var sty = document.getElementById('link1');
+        sty.href = 'Style2.css'
+    }
+</script>
+<body>
+<input type="button" value="Change to style 1" onclick="getStyle1()"/>
+<input type="button" value="Change to style 2" onclick="getStyle2()"/>
+
+</body>
+</html>

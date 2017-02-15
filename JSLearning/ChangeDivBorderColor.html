@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Change DIV Border Color</title>
+
+    <style>
+        .class1 {width: 200px; height: 200px; border: dashed; }
+        .class2 {width: 400px; height: 400px; border: double;  border-color: blue; background: red;}
+    </style>
+    <script>
+        function toRed()
+        {
+            var oDiv = document.getElementById('div1');
+            oDiv.className = 'class2';
+        }
+    </script>
+</head>
+
+<body>
+<div id="div1" onclick="toRed()" class='class1'></div>
+
+</body>
+</html>

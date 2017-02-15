@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+        #div1 {width: 150px; height: 200px; background: green; position: absolute; left: 145px; filter: alpha(opacity:30); opacity: 0.3;}
+        #div1 span {position: absolute; width: 100px; height: 60px; line-height: 20px; background: blue; right: -20px; top: 70px;}
+    </style>
+
+    <script>
+        window.onload = function (){
+            var oDiv = document.getElementById('div1');
+
+            oDiv.onmouseover = function (){
+                startToMove('left',5,0); //改变位置
+//                startToMove('opacity',1,100); //改变透明度
+            };
+
+            oDiv.onmouseout = function (){
+                startToMove('left',-5,-145);
+//                startToMove('opacity',-1,30);
+            };
+        };
+
+        var alpha = 30;
+        var timer = null;
+
+        function startToMove(target,speed,position){
+            var oDiv = document.getElementById('div1');
+            clearInterval(timer);
+            timer = setInterval(function (){
+                //var speed = 5;
+
+                if(target == 'left'){
+                    if(oDiv.offsetLeft == position){
+                        clearInterval(timer);
+                        return;
+                    }
+
+                    oDiv.style.left = oDiv.offsetLeft + speed + 'px';
+                }
+
+                if(target == 'opacity'){
+                    if(alpha == position)
+                    {
+                        clearInterval(timer);
+                        return;
+                    }
+                    else{
+                        alpha += speed;
+                        oDiv.style.filter = 'alpha(opacity:'+alpha+')';
+                        oDiv.style.opacity = alpha/100;
+                    }
+
+                }
+
+            },30);
+        }
+
+    </script>
+</head>
+<body>
+<div id="div1">
+    <span>Share to</span>
+</div>
+</body>
+</html>

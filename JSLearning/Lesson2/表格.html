@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+<script>
+
+    function changeColor(oTab, sOldColor) {
+        for (var i = 0; i < oTab.tBodies[0].rows.length; i++) {
+            if (i % 2 == 0) {
+                oTab.tBodies[0].rows[i].style.background = 'grey';
+            }
+
+            oTab.tBodies[0].rows[i].onmouseover = function () {
+                sOldColor = this.style.background;
+                this.style.background = 'green';
+            }
+
+            oTab.tBodies[0].rows[i].onmouseout = function () {
+                this.style.background = sOldColor;
+            }
+        }
+    }
+
+    window.onload = function (){
+        var oName = document.getElementById('name');
+        var oAge = document.getElementById('age');
+        var oBtn = document.getElementById('btn1');
+        var oTab = document.getElementById('tab1');
+        var sOldColor ='';
+
+        //alert(oTab.tBodies[0].rows[0].cells[1].innerHTML);
+
+        changeColor(oTab, sOldColor);
+
+        oBtn.onclick = function (){
+            var aNameTd = document.createElement('td');
+            aNameTd.innerHTML = oName.value;
+
+            var aAgeTd = document.createElement('td');
+            aAgeTd.innerHTML = oAge.value;
+
+            var aIdTd = document.createElement('td');
+            aIdTd.innerHTML = (oTab.tBodies[0].rows.length + 1).toString();
+
+            var aOpTd = document.createElement('td');
+            aOpTd.innerHTML = '<a href="javascript:;">Delete</a>'
+            aOpTd.getElementsByTagName('a')[0].onclick = function (){
+                oTab.tBodies[0].removeChild(this.parentNode.parentNode);
+
+                changeColor(oTab, sOldColor);
+            }
+
+            var aTr = document.createElement('tr');
+            aTr.appendChild(aIdTd);
+            aTr.appendChild(aNameTd);
+            aTr.appendChild(aAgeTd);
+            aTr.appendChild(aOpTd);
+            if(oTab.tBodies[0].rows.length%2 == 0){
+                aTr.style.background = 'grey';
+            }
+
+            aTr.onmouseover = function (){
+                sOldColor = this.style.background;
+                this.style.background = 'green';
+            }
+            aTr.onmouseout = function (){
+                this.style.background = sOldColor;
+            }
+
+            oTab.tBodies[0].appendChild(aTr);
+        }
+
+
+    }
+</script>
+</head>
+<body>
+NAME: <input id="name" type="text" />
+AGE: <input id="age" type="text"/>
+<input id="btn1" type="button" value="Add">
+
+<table id="tab1" border="1" width="500">
+    <thead>
+        <td>ID</td>
+        <td>NAME</td>
+        <td>AGE</td>
+        <td>OPERATION</td>
+    </thead>
+    <tbody>
+        <!--<tr>-->
+            <!--<td>1</td>-->
+            <!--<td>Tom</td>-->
+            <!--<td>23</td>-->
+        <!--</tr>-->
+
+        <!--<tr>-->
+            <!--<td>2</td>-->
+            <!--<td>Jone</td>-->
+            <!--<td>33</td>-->
+        <!--</tr>-->
+
+        <!--<tr>-->
+            <!--<td>3</td>-->
+            <!--<td>Leo</td>-->
+            <!--<td>36</td>-->
+        <!--</tr>-->
+
+        <!--<tr>-->
+            <!--<td>4</td>-->
+            <!--<td>Sun</td>-->
+            <!--<td>34</td>-->
+        <!--</tr>-->
+
+        <!--<tr>-->
+            <!--<td>5</td>-->
+            <!--<td>Tim</td>-->
+            <!--<td>5</td>-->
+        <!--</tr>-->
+    </tbody>
+</table>
+</body>
+</html>

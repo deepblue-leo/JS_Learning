@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>CSS Demo</title>
+    <style type="text/css">
+        <!--Display title in blue and italic-->
+        h1,h2 {color: blue; font-style: italic}
+        /*
+         * the elements which class = "WARNING" display with big size, bold, wide margin, yellow background, wide/red padding
+        */
+        .WARNING {
+            font-weight: bold;
+            font-size: 150%;
+            margin: 0 1in 0 1in; /*right upper left lower*/
+            background-color: yellow;
+            border: solid red 8px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .video_style {
+            height: 500px;
+            width: 900px;
+        }
+
+        .divcss5{
+            height: 500px;
+            width: 900px;
+            border:1px solid #F00
+            align:"center"
+        }
+
+        /*
+        * the elements in the elements which class="WARNING" which has "h1" & "h2" label should be displayed in blue and on center
+        */
+        .WARNING h1, h2 {text-align: center}
+
+        #special {
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Cascading Style Sheet Demo</h1>
+
+    <div class="WARNING">
+        <h2>Warning</h2>
+        This is a warning!
+        Notice how it grabs your attention with bold text and bright colors.
+        Also notice that the heading is centered and in blue italic.
+    </div>
+
+    <div class="divcss5">
+        <video class="video_style" controls="controls" src="好菜都让猪啃了女神级美女被胖哥哥后入到高潮.mp4">
+
+        </video>
+    </div>
+
+    <p id="special">
+        This paragraph is centered<br>
+        and appears in uppercase letters.<br>
+        <span style="text-transform: none; text-shadow: 3px 3px 1px #888">
+            Here we explicitly ues an inline style to override the uppercase letters.
+        </span>
+    </p>
+</body>
+</html>

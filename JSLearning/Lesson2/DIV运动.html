@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+        #div1 {width: 200px; height: 500px; background: red; position: absolute; top: 50px; left: 0px;}
+    </style>
+
+    <script>
+//        window.onload = function (){
+
+
+            function startToMove(){
+                var oDiv = document.getElementById('div1');
+                clearInterval(timer);
+                var timer = setInterval(function (){
+                    var speed = 3;
+
+                    if(oDiv.offsetLeft < 1000){
+                        oDiv.style.left = oDiv.offsetLeft + speed + 'px';
+                    }
+                    else
+                    {
+                        clearInterval(timer);
+                    }
+
+                },30);
+
+            }
+//        }
+
+    </script>
+</head>
+<body>
+<input id="btn1" type="button" value="start to move" onclick="startToMove()">
+<div id="div1"></div>
+</body>
+</html>

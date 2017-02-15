@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+        window.onload = function (){
+            var oBtn = document.getElementById('btn1');
+            var oUl = document.getElementById('ul1');
+            var oTxt = document.getElementById('txt1');
+            var oLi = document.getElementsByTagName('li');
+            var oA = document.getElementsByTagName('a');
+
+            oBtn.onclick = function (){
+                var aLi = document.createElement('li');
+                aLi.innerHTML = oTxt.value;
+
+                var aA = document.createElement('a');
+                aA.setAttribute('href', 'javascript:;');
+                aA.innerHTML = '删除';
+                aA.onclick = function (){
+                    oUl.removeChild(this.parentNode);
+                }
+
+                aLi.appendChild(aA);
+
+                //oUl.appendChild(aLi); //插到后面
+
+                //往前插入
+                if(oLi.length > 0){
+                    oUl.insertBefore(aLi,oLi[0]);
+                }
+                else{
+                    oUl.appendChild(aLi);
+                }
+            }
+
+
+        }
+
+    </script>
+</head>
+<body>
+<input id="txt1" type="text"/>
+<input id="btn1" type="button" value="Add li"/>
+<ul id="ul1"></ul>
+</body>
+</html>

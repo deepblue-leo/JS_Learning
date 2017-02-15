@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+        #div1 {width: 100px; height: 60px; background: red; position: absolute; left: 0px; top: 50px;}
+    </style>
+
+    <script>
+        window.onload = function (){
+            var oBtn = document.getElementById('btn1');
+            var oTxt2 = document.getElementById('txt2');
+            var oDiv = document.getElementById('div1');
+
+            var timer = null;
+            var speed = 0
+            var distance = 0;
+
+            oBtn.onclick = function (){
+                distance = parseInt(oTxt2.value);
+
+                timer = setInterval(function (){
+                    //var left_Distance = distance - oDiv.offsetLeft;//剩余距离
+
+                    if(oDiv.offsetLeft < distance){
+                        speed = (distance - oDiv.offsetLeft) / 20;//向上取整
+                        speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+                        oDiv.style.left = oDiv.offsetLeft + speed + 'px';
+                    }
+                    else{
+                        clearInterval(timer);
+                        return;
+                    }
+                },30);
+            }
+        }
+    </script>
+</head>
+<body>
+Distance : <input id="txt2" type="text"/>
+<input id="btn1" type="button" value="Start to move" />
+<div id="div1"></div>
+</body>
+</html>
