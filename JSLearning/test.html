@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"/>
+<script type="text/javascript">
+	$(document).ready(function() {
+		alert("Hello World");
+	});
+</script>
+</head>
+
+<head>
+	<title>test</title>
+	<style type="text/css">
+		div.span.p{
+			width: 140px;
+			height: 140px;
+			margin: 5px;
+			background: #aaa;
+			border: #000 1px solid;
+			float: left;
+			font-size: 17px;
+			font-family: Verdana;
+		}
+
+		div.mini{
+			width: 55px;
+			height: 55px;
+			background-color: #aaa;
+			font-size: 12px;
+		}
+
+		div.hide{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="one" id="one">
+		a div of id is one,class is one
+		<div class="mini">a div of class is mini</div>
+	</div>
+
+	<div class="one" id="two" title="test">
+		a div of id is two, class is one, title  is test.
+		<div class="mini" title="other">
+			a div of class is mini, title is other.
+		</div>
+		<div class="mini" title="test">
+			a div of class is mini, title is test.
+		</div>
+	</div>
+
+	<div class="one">
+		<div class="mini">class is mini</div>
+		<div class="mini">class is mini</div>
+		<div class="mini">class is mini</div>
+		<div class="mini"></div>
+	</div>
+
+	<div class="one">
+		<div class="mini">class is mini</div>
+		<div class="mini">class is mini</div>
+		<div class="mini">class is mini</div>
+		<div class="mini" title="tesst">class is mini, title  is tesst</div>
+	</div>
+
+	<div style="display: none;" class="none">
+		a div of stype is display:none.
+	</div>
+	<div class="hide">
+		a div of class is hide
+	</div>
+	<div>
+		a div of including an input of type is hidden <input type="hidden" size="8"/>
+	</div>
+</body>
+</html>
